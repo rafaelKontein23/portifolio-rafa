@@ -5,7 +5,7 @@ function MenuCima() {
   return (
     <nav  className="flex items-center justify-between px-4 py-[50px] bg-[#1D181A] w-full top-0 left-0 z-[1000] h-[70px] border-b-[#403534]  ">
       <div className="logo">
-        <span className="meu-nome">Rafael<strong className="ponto">.</strong>Kon</span>
+        <span className="font-jetbrains">Rafael<strong className="text-[#DC143C] font-jetbrains">.</strong>Kon</span>
       </div>
 
       <div className="menu">

@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Manrope", serif;
+  --font-jetbrains: "JetBrains Mono", serif;
+}
 
-body{
-  background-color: #1D181A  ;
-  color: #F5EEED;
+
+@layer base {
+  body{
+    background-color: #1D181A  ;
+    color: #F5EEED;
+  }
 }
 
