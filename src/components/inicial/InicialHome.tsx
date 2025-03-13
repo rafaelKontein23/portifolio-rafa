@@ -27,11 +27,16 @@ function InicialHome() {
                         <span className='font-jetbrains '>Ver Projetos</span>
                         <img src={seta_baixo} />
                     </button>
-                    <h1 >|</h1>
+                    <h1 className='text-8x1 place-content-center ml-12'>|</h1>
 
                     <span className='place-content-center p-12 font-jetbrains'>Entre em contato</span>
 
                 </div>
+
+
+                <section>
+                    <h1>lore</h1>
+                </section>
 
             </div>
 
