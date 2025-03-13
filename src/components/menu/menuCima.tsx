@@ -2,34 +2,43 @@ import 'react'
 
 
 function MenuCima() {
+  const menu = [
+    {
+      nome: 'Home',
+      link: '#'
+    },
+    {
+      nome: 'Sobre',
+      link: '#'
+    },
+    {
+      nome: 'Experiência',
+      link: '#'
+    },
+    {
+      nome: 'Projetos',
+      link: '#'
+    },
+    {
+      nome: 'Contato',
+      link: '#'
+    },
+  ]
+
   return (
-    <nav  className="flex items-center justify-between px-4 py-[50px] bg-[#1D181A] w-full top-0 left-0 z-[1000] h-[70px] border-b-[#403534]  ">
+    <nav className="flex items-center justify-between px-48 bg-[#1D181A] w-full top-0 left-0 z-[1000] h-[62px] border-b border-solid border-b-[#403534]">
       <div className="logo">
-        <span className="font-jetbrains">Rafael<strong className="text-[#DC143C] font-jetbrains">.</strong>Kon</span>
+        <span className="font-jetbrains text-[24px]">Rafael<strong className="text-[#DC143C] font-jetbrains">.</strong>Kon</span>
       </div>
 
       <div className="menu">
-        <ul className="flex items-end gap-16 hover:">
-          <li>
-            <a href="#home">Home</a>
-            <div className="indicador"></div>
-          </li>
-          <li>
-            <a href="#sobre">Sobre</a>
-            <div className="indicador"></div>
-          </li>
-          <li>
-            <a href="#experiencia">Experiência</a>
-            <div className="indicador"></div>
-          </li>
-          <li>
-            <a href="#projetos">Projetos</a>
-            <div className="indicador"></div>
-          </li>
-          <li>
-            <a href="#contato">Contato</a>
-            <div className="indicador"></div>
-          </li>
+        <ul className="flex items-end gap-16">
+          {menu.map((m, i) => (
+            <li key={i}>
+              <a href={m.link} className='h-[62px] border-b-4 border-b-transparent flex items-center justify-center transition-colors duration-300 hover:border-b-[#DC143C]'>{m.nome}</a>
+            </li>
+          ))}
+
         </ul>
       </div>
 

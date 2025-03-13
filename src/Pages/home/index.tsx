@@ -6,13 +6,12 @@ import InicialHome from "../../components/inicial/InicialHome"
 
 
 const Home: React.FC = () => {
-    return (
-      <>
-        <MenuCima />
-        <InicialHome/>
+  return (
+    <>
+      <MenuCima />
+      <InicialHome />
+    </>
+  );
+};
 
-      </>
-    );
-  };
-  
-  export default Home;
+export default Home;
