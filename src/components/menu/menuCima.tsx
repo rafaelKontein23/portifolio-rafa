@@ -1,7 +1,6 @@
 import 'react'
 import { useState } from 'react';
 import { Menu, X } from "lucide-react"; 
-import Typewriter from "typewriter-effect";
 
 
 function MenuCima() {

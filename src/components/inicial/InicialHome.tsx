@@ -13,7 +13,6 @@ import docker from "/docker.svg"
 import spring from "/spring.svg"
 import android_skill from "/android_skiill.svg"
 import sqlite from "/sqlite.svg"
-import Typewriter from "typewriter-effect";
 
 enum projetosEnum {
     TODOS = "todos",
