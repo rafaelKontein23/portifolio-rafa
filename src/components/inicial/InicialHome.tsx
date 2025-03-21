@@ -13,6 +13,8 @@ import docker from "/docker.svg"
 import spring from "/spring.svg"
 import android_skill from "/android_skiill.svg"
 import sqlite from "/sqlite.svg"
+import Typewriter from "typewriter-effect";
+
 enum projetosEnum {
     TODOS = "todos",
     BACKEND = "backend",
@@ -28,6 +30,8 @@ interface Projeto {
     link: string;
     tipo: projetosEnum;
 }
+
+
 
 const listaProjetos: Projeto[] = [
     {
@@ -71,8 +75,8 @@ function InicialHome() {
     const [selecionado, setSelecionado] = useState<projetosEnum>(projetosEnum.TODOS);
     return (
         <>
-            <div className='relative flex flex-col justify-between items-center min-h-svh container mx-auto px-4 lg:px-0 lg:flex-row'>
-                <div className='w-full lg:w-1/2 mt-11 lg:mt-0'>
+            <div id="home" className='relative flex flex-col justify-between items-center min-h-svh container mx-auto px-4 lg:px-0 lg:flex-row scroll-animate'>
+                <div className='w-full lg:w-1/2 mt-32 lg:mt-0'>
                     <div className='flex h-10 items-center justify-start bg-[#272020] px-4 py-2 w-[175px] rounded-[100px] '>
                         <div className='rounded-[100px] bg-[#14DC49] h-[8px] w-[8px] mr-2'></div>
                         <span className='text-[16px] opacity-50 font-[500] tracking-[0.15px] font-jetbrains'>Java & Kotlin</span>
@@ -90,13 +94,16 @@ function InicialHome() {
                     </div>
                     <div className='flex flex-wrap justify-start'>
 
-                        <button className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] w-1/2  justify-center place-items-center'>
+                        <a href='#projetos'  className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] w-1/2  justify-center place-items-center'>
                             <span className='font-jetbrains '>Ver Projetos</span>
                             <img src={seta_baixo} />
-                        </button>
+                        </a>
                         <h1 className='text-8x1 place-content-center ml-12'>|</h1>
 
-                        <span className='cursor-pointer  place-content-center p-12 font-jetbrains'>Entre em contato</span>
+
+                        <a href="https://w.app/rafaelkon"
+                            target="_blank"
+                            rel="noopener noreferrer" className='cursor-pointer  place-content-center p-12 font-jetbrains'>Entre em contato</a>
 
                     </div>
 
@@ -109,18 +116,16 @@ function InicialHome() {
                 </div>
             </div>
 
-            <section className='container relative mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:text-center lg:text-left px-6'>
+            <section id="sobre" className=' container relative mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:text-center lg:text-left px-6'>
                 <div className='lg:flex-1'>
                     <h1 className='font-jetbrains mt-[100px] lg:mt-[200px] text-[36px] lg:-[48px] '>Desenvolvedor apaixonado por tecnologia</h1>
 
                     <p className='text-[16px] lg:text-[24px] opacity-50 max-w-5x1 font-[500] tracking-[0.15px] text-left mt-[40px] lg:text-sm/14 text-sm/8'>
-                        Sou um desenvolvedor Java Back-end com 1 ano de experiência em Spring Boot, JPA, Docker, AWS (S3, SES) e no desenvolvimento e deploy de APIs. Estou sempre aprimorando minhas habilidades para criar soluções robustas e escaláveis.
+                    Sou um desenvolvedor Android com 4 anos de experiência, criando aplicativos robustos e eficientes tanto em Java quanto Kotlin. Tenho domínio de MVC, MVP, MVVM e Clean Architecture, além de trabalhar com SQLite, Jetpack Compose e componentes de View (XML). Sei publicar e monitorar aplicativos na Play Store, além de integrar Google Maps, CameraX, push notifications e muito mais.
 
-                        No Android, tenho 4 anos de experiência, desenvolvendo aplicativos tanto em Java quanto Kotlin. Tenho domínio de MVC, MVP, MVVM, Clean Architecture, SQLite, além de Jetpack Compose e componentes de View (XML). Também sei publicar aplicativos na Play Store, monitorá-los, integrar Google Maps, CameraX, push notifications e muito mais.
+No back-end, atuo há 1 ano no desenvolvimento de APIs com Java e Spring Boot, utilizando JPA, Docker e AWS (S3, SES) para criar soluções escaláveis e de alto desempenho. Recentemente, também venho explorando React, incluindo o desenvolvimento deste próprio portfólio.
 
-                        Já desenvolvi projetos em React, incluindo este próprio portfólio. Embora não seja minha especialidade, consigo construir aplicações funcionais e bem estruturadas quando necessário.
-
-                        Estou sempre em busca de novos desafios e oportunidades para aprimorar minhas habilidades e entregar soluções de alta qualidade! 🚀                    </p>
+Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções inovadoras e de qualidade!  🚀                    </p>
                 </div>
 
                 <div className="hidden lg:block w-[385px]">
@@ -129,7 +134,7 @@ function InicialHome() {
 
             </section>
 
-            <section className='container relative mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:text-center lg:text-left px-6 '>
+            <section id="habilidades" className='container relative mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-40 sm:text-center lg:text-left px-6 '>
                 <div className='lg:flex-1'>
                     <h1 className='font-jetbrains mt-[100px] lg:mt-[200px] text-[36px] lg:-[48px] '>Habilidades</h1>
 
@@ -153,7 +158,7 @@ function InicialHome() {
 
             </section>
 
-            <section className='container mx-auto '>
+            <section id="projetos" className='container mx-auto '>
                 <h1 className='font-jetbrains mt-[100px] lg:mt-[200px] text-4xl lg:text-[48px] px-6 lg:px-0'>Projetos desenvolvidos</h1>
 
                 <div className='mt-3 flex flex-col lg:flex-row gap-[32px] px-6 lg:px-0 mt-6'>
@@ -236,7 +241,7 @@ function InicialHome() {
 
             </section>
 
-            <section className='flex flex-col container mx-auto  px-6 mb-24'>
+            <section id="contato" className='flex flex-col container mx-auto  px-6 mb-24'>
                 <h1 className='font-jetbrains mt-[100px]  text-[36px] lg:-[48px]'>Fale Comigo</h1>
 
                 <input type="text" className='h-16 w-full bg-[#4035343D] mx-auto mt-8 ps-3' placeholder='Nome'>

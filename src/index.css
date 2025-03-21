@@ -13,3 +13,57 @@
   }
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+}
+
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-In da Direita */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.scroll-animate.slide-left {
+  opacity: 0;
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Classe para Slide-In da Direita */
+.scroll-animate.slide-right {
+  opacity: 0;
+  animation: slideInRight 1s ease-out forwards;
+}
