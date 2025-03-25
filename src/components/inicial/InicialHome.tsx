@@ -13,6 +13,8 @@ import docker from "/docker.svg"
 import spring from "/spring.svg"
 import android_skill from "/android_skiill.svg"
 import sqlite from "/sqlite.svg"
+import axios from 'axios'
+
 
 enum projetosEnum {
     TODOS = "todos",
@@ -29,6 +31,7 @@ interface Projeto {
     link: string;
     tipo: projetosEnum;
 }
+
 
 
 
@@ -72,6 +75,23 @@ const skills = [
 
 function InicialHome() {
     const [selecionado, setSelecionado] = useState<projetosEnum>(projetosEnum.TODOS);
+    const [assunto, setAssunto] = useState<string>('')
+    const [descricao, setDescricao] = useState<string>('')
+
+    function enviaEmail() {
+        axios.post('https://rafaelkon.store/email/envia/email', {
+            to: 'rafael.kontein23@gmail.com',
+            from: 'rafael.ps0007@gmail.com',
+            subject: assunto,
+            text : descricao
+
+        }).then(function (response){
+            console.log(response)
+        }).catch(function (error){
+            console.log(error)
+        });
+
+    }
     return (
         <>
             <div id="home" className='relative flex flex-col justify-between items-center min-h-svh container mx-auto px-4 lg:px-0 lg:flex-row scroll-animate'>
@@ -93,7 +113,7 @@ function InicialHome() {
                     </div>
                     <div className='flex flex-wrap justify-start'>
 
-                        <a href='#projetos'  className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] w-1/2  justify-center place-items-center'>
+                        <a href='#projetos' className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] w-1/2  justify-center place-items-center'>
                             <span className='font-jetbrains '>Ver Projetos</span>
                             <img src={seta_baixo} />
                         </a>
@@ -120,11 +140,11 @@ function InicialHome() {
                     <h1 className='font-jetbrains mt-[100px] lg:mt-[200px] text-[36px] lg:-[48px] '>Desenvolvedor apaixonado por tecnologia</h1>
 
                     <p className='text-[16px] lg:text-[24px] opacity-50 max-w-5x1 font-[500] tracking-[0.15px] text-left mt-[40px] lg:text-sm/14 text-sm/8'>
-                    Sou um desenvolvedor Android com 4 anos de experiência, criando aplicativos robustos e eficientes tanto em Java quanto Kotlin. Tenho domínio de MVC, MVP, MVVM e Clean Architecture, além de trabalhar com SQLite, Jetpack Compose e componentes de View (XML). Sei publicar e monitorar aplicativos na Play Store, além de integrar Google Maps, CameraX, push notifications e muito mais.
+                        Sou um desenvolvedor Android com 4 anos de experiência, criando aplicativos robustos e eficientes tanto em Java quanto Kotlin. Tenho domínio de MVC, MVP, MVVM e Clean Architecture, além de trabalhar com SQLite, Jetpack Compose e componentes de View (XML). Sei publicar e monitorar aplicativos na Play Store, além de integrar Google Maps, CameraX, push notifications e muito mais.
 
-No back-end, atuo há 1 ano no desenvolvimento de APIs com Java e Spring Boot, utilizando JPA, Docker e AWS (S3, SES) para criar soluções escaláveis e de alto desempenho. Recentemente, também venho explorando React, incluindo o desenvolvimento deste próprio portfólio.
+                        No back-end, atuo há 1 ano no desenvolvimento de APIs com Java e Spring Boot, utilizando JPA, Docker e AWS (S3, SES) para criar soluções escaláveis e de alto desempenho. Recentemente, também venho explorando React, incluindo o desenvolvimento deste próprio portfólio.
 
-Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções inovadoras e de qualidade!  🚀                    </p>
+                        Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções inovadoras e de qualidade!  🚀                    </p>
                 </div>
 
                 <div className="hidden lg:block w-[385px]">
@@ -245,14 +265,15 @@ Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções i
 
                 <input type="text" className='h-16 w-full bg-[#4035343D] mx-auto mt-8 ps-3' placeholder='Nome'>
                 </input>
-                <input type="text" className='h-16 w-full bg-[#4035343D] mx-auto mt-8 ps-3' placeholder='Assunto'>
+                <input onChange={(event) => setAssunto(event.target.value)} type="text" className='h-16 w-full bg-[#4035343D] mx-auto mt-8 ps-3' placeholder='Assunto'>
                 </input>
                 <textarea
+                    onChange={(event) => setDescricao(event.target.value)}
                     className="h-32 w-full bg-[#4035343D] text-white mx-auto mt-8 p-3 rounded-lg placeholder-gray-400 resize-none"
                     placeholder="Assunto">
                 </textarea>
 
-                <button className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] lg:w-full  justify-center place-items-center'>
+                <button onClick={() => enviaEmail()} className='cursor-pointer flex bg-[#DC143C] w-full lg:w-[220px] h-[48px] p-2 mt-[40px] lg:w-full  justify-center place-items-center'>
                     <span className='font-jetbrains '>Enviar</span>
                     <img src={send} />
                 </button>
