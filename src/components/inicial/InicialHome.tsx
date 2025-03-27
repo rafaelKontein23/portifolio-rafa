@@ -13,7 +13,12 @@ import docker from "/docker.svg"
 import spring from "/spring.svg"
 import android_skill from "/android_skiill.svg"
 import sqlite from "/sqlite.svg"
+import git from "/git.png"
+import curriculo from "/curriculo.png"
+import link_din from "/in.png"
+import ws from "/ws.png"
 import axios from 'axios'
+import toast from 'react-hot-toast';
 
 
 enum projetosEnum {
@@ -70,7 +75,28 @@ const skills = [
     { name: "sqlite", img: sqlite, description: "Experiência sólida no desenvolvimento back-end e Android." },
 
 ];
-
+const menu = [
+    {
+        nome: 'Home',
+        link: '#home'
+    },
+    {
+        nome: 'Sobre',
+        link: '#sobre'
+    },
+    {
+        nome: 'Habilidades',
+        link: '#habilidades'
+    },
+    {
+        nome: 'Projetos',
+        link: '#projetos'
+    },
+    {
+        nome: 'Contato',
+        link: '#contato'
+    },
+]
 
 
 function InicialHome() {
@@ -83,11 +109,18 @@ function InicialHome() {
             to: 'rafael.kontein23@gmail.com',
             from: 'rafael.ps0007@gmail.com',
             subject: assunto,
-            text : descricao
+            text: descricao
 
-        }).then(function (response){
-            console.log(response)
-        }).catch(function (error){
+        }).then(function (response) {
+            var result = response.data
+            if (result.valido) {
+                toast.success(result.mensagem)
+            } else {
+                toast.error(result.mensagem)
+            }
+
+
+        }).catch(function (error) {
             console.log(error)
         });
 
@@ -125,9 +158,6 @@ function InicialHome() {
                             rel="noopener noreferrer" className='cursor-pointer  place-content-center p-12 font-jetbrains'>Entre em contato</a>
 
                     </div>
-
-
-
                 </div>
 
                 <div className="w-full lg:w-1/2 flex flex-col justify-between items-center self-stretch h-full">
@@ -144,7 +174,10 @@ function InicialHome() {
 
                         No back-end, atuo há 1 ano no desenvolvimento de APIs com Java e Spring Boot, utilizando JPA, Docker e AWS (S3, SES) para criar soluções escaláveis e de alto desempenho. Recentemente, também venho explorando React, incluindo o desenvolvimento deste próprio portfólio.
 
-                        Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções inovadoras e de qualidade!  🚀                    </p>
+                        Estou sempre buscando desafios que me ajudem a evoluir e a entregar soluções inovadoras e de qualidade!  🚀        
+                            
+                 
+                 </p>
                 </div>
 
                 <div className="hidden lg:block w-[385px]">
@@ -278,6 +311,48 @@ function InicialHome() {
                     <img src={send} />
                 </button>
             </section>
+
+            <section className="container px-6 mx-auto flex flex-col lg:grid lg:grid-cols-3 gap-8 items-center text-center lg:text-left">
+                <div className="flex justify-center lg:justify-start">
+                    <span className="font-jetbrains text-[24px]">
+                        Rafael<strong className="text-[#DC143C] font-jetbrains">.</strong>Kon
+                    </span>
+                </div>
+
+                <div className="hidden lg:flex justify-center">
+                    <ul className="flex items-center gap-8">
+                        {menu.map((m, i) => (
+                            <li key={i}>
+                                <a href={m.link} className="border-b-4 border-b-transparent flex items-center justify-center hover:border-[#DC143C] transition-all duration-300">
+                                    {m.nome}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="flex justify-center lg:justify-end gap-6">
+                    <a href="URL_GIT" target="_blank" rel="noopener noreferrer">
+                        <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={git} alt="GitHub" />
+                    </a>
+                    <a href="URL_LINKEDIN" target="_blank" rel="noopener noreferrer">
+                        <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={link_din} alt="LinkedIn" />
+                    </a>
+                    <a href="URL_WHATSAPP" target="_blank" rel="noopener noreferrer">
+                        <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={ws} alt="WhatsApp" />
+                    </a>
+                    <a href="URL_CURRICULO" target="_blank" rel="noopener noreferrer">
+                        <img className="cursor-pointer w-40 h-8 hover:scale-110 transition-transform" src={curriculo} alt="Currículo" />
+                    </a>
+                </div>
+            </section>
+
+            <section className='container px-6 mx-auto mt-11'>
+                <hr></hr>
+                <span className='font-manrope mt-4 text- [12px] mb-12'> © 2011 -2025 | Rafael Kon Tein Todos os direitos reservados</span>
+
+            </section>
+
         </>
     )
 }
