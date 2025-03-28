@@ -14,7 +14,6 @@ import spring from "/spring.svg"
 import android_skill from "/android_skiill.svg"
 import sqlite from "/sqlite.svg"
 import git from "/git.png"
-import curriculo from "/curriculo.png"
 import link_din from "/in.png"
 import ws from "/ws.png"
 import axios from 'axios'
@@ -46,7 +45,7 @@ const listaProjetos: Projeto[] = [
         imagem: androidProjeto,
         titulo: "Projeto Sales Manager",
         descricao: "Aplicativo para vendedores, com recursos para gerenciar vendas, comissões e produtos. Usando XML, MVVM, Retrofit para comunicação com o backend, e SQLite para armazenamento local. Coroutines são utilizadas para otimizar operações assíncronas e melhorar a performance.",
-        link: "https://github.com/rafaelKontein23/vendas",
+        link: "https://github.com/rafaelKontein23",
         tipo: projetosEnum.ANDROID,
     },
     {
@@ -62,7 +61,7 @@ const listaProjetos: Projeto[] = [
         imagem: androidProjeto,
         titulo: "Projeto Sales Manager Offline",
         descricao: "Aplicativo offline para vendedores gerenciarem vendas, comissões e produtos sem precisar de conexão com a internet. Usando XML, MVVM, SQLite para armazenamento local e Coroutines para operações assíncronas, garantindo desempenho e acessibilidade mesmo sem conexão. Retrofit foi implementado para futuras integrações online.",
-        link: "https://github.com/rafaelKontein23/vendasOffiline",
+        link: "https://github.com/rafaelKontein23",
         tipo: projetosEnum.ANDROID,
     }
 ]
@@ -120,8 +119,8 @@ function InicialHome() {
             }
 
 
-        }).catch(function (error) {
-            console.log(error)
+        }).catch(function () {
+            toast.error("Algo deu errado ao enviar")
         });
 
     }
@@ -332,23 +331,21 @@ function InicialHome() {
                 </div>
 
                 <div className="flex justify-center lg:justify-end gap-6">
-                    <a href="URL_GIT" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/rafaelKontein23" target="_blank" rel="noopener noreferrer">
                         <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={git} alt="GitHub" />
                     </a>
-                    <a href="URL_LINKEDIN" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/rafael-kon-tein-47bb13212/" target="_blank" rel="noopener noreferrer">
                         <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={link_din} alt="LinkedIn" />
                     </a>
-                    <a href="URL_WHATSAPP" target="_blank" rel="noopener noreferrer">
+                    <a href="https://w.app/rafaelkon" target="_blank" rel="noopener noreferrer">
                         <img className="cursor-pointer w-8 h-8 hover:scale-110 transition-transform" src={ws} alt="WhatsApp" />
                     </a>
-                    <a href="URL_CURRICULO" target="_blank" rel="noopener noreferrer">
-                        <img className="cursor-pointer w-40 h-8 hover:scale-110 transition-transform" src={curriculo} alt="Currículo" />
-                    </a>
+                    
                 </div>
             </section>
 
             <section className='container px-6 mx-auto mt-11'>
-                <hr></hr>
+                <hr className='bg-black'></hr>
                 <span className='font-manrope mt-4 text- [12px] mb-12'> © 2011 -2025 | Rafael Kon Tein Todos os direitos reservados</span>
 
             </section>
